@@ -1,0 +1,23 @@
+import java.util.Objects;
+
+public class BoadcastMessage extends MessageHandler {
+	public BoadcastMessage () {
+        super();
+    }
+    public BoadcastMessage (MessageHandler nextMessage) {
+        super(nextMessage);
+	}
+    
+	@Override
+	String message(Message message) {
+		if (this.validateBoadcastMessage(message)) {
+			return this.sendMessage(message);
+		}
+		if (Objects.isNull(this.nextMessage)) throw new MessageHandlerException("end of chain");
+		return this.nextMessage.message(message);
+	}
+	@Override
+	MessageType getTypeMessage() {
+		return MessageType.MEME;
+	}
+}
