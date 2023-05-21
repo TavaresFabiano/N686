@@ -1,16 +1,16 @@
 import java.util.Objects;
 
-public class MemeMessage extends MessageHandler {
-	public MemeMessage () {
+public class MessageMemeHandler extends MessageHandler {
+	public MessageMemeHandler () {
         super();
     }
-    public MemeMessage (MessageHandler nextMessage) {
+    public MessageMemeHandler (MessageHandler nextMessage) {
         super(nextMessage);
 	}
     
 	@Override
 	String message(Message message) {
-		if (this.validateMemeMessage(message)) {
+		if (this.validateTypeMessage(message)) {
 			return this.sendMessage(message);
 		}
 		if (Objects.isNull(this.nextMessage)) throw new MessageHandlerException("end of chain");
