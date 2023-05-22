@@ -12,12 +12,20 @@ public class Demo {
         msg2.setFrom("jhon.doe1");
         msg2.setMsg("hello world from whatsapp");
         msg2.setMessageType(MessageType.VIDEO);
+
+        Message msg3 = new Message();
+        msg2.setOring("whatsapp");
+        msg2.setFrom("jhon.doe1");
+        msg2.setMsg("hello world from whatsapp");
+        msg2.setMessageType(MessageType.MEME);
         
         MessageTextHandler messageTextHandler = new MessageTextHandler();
-        BroadcastMessage broadcastMessage = new BroadcastMessage(messageTextHandler);
+        MessageMemeHandler messageMemeHandler = new MessageMemeHandler(messageTextHandler);
+        BroadcastMessage broadcastMessage = new BroadcastMessage(messageMemeHandler);
 
         broadcastMessage.addMessage(msg1);
         broadcastMessage.addMessage(msg2);
+        broadcastMessage.addMessage(msg3);
 
         try {
             broadcastMessage.sendAllMessages();
