@@ -27,8 +27,8 @@ public class Demo {
         
         MessageTextHandler messageTextHandler = new MessageTextHandler();
         MessageMemeHandler messageMemeHandler = new MessageMemeHandler(messageTextHandler);
-        MessageVideoHandler messageVideoHandler = new MessageVideoHandler(messageVideoHandler);
-        BroadcastMessage broadcastMessage = new BroadcastMessage(messageMemeHandler);
+        MessageVideoHandler messageVideoHandler = new MessageVideoHandler(messageMemeHandler);
+        BroadcastMessage broadcastMessage = new BroadcastMessage(messageVideoHandler);
 
         broadcastMessage.addMessage(msg1);
         broadcastMessage.addMessage(msg2);
