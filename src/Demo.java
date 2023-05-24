@@ -24,16 +24,24 @@ public class Demo {
         msg4.setFrom("jhon.doe1");
         msg4.setMsg("hello world from whatsapp");
         msg4.setMessageType(MessageType.VIDEO);
+
+        Message msg5 = new Message();
+        msg5.setOring("whatsapp");
+        msg5.setFrom("jhon.doe1");
+        msg5.setMsg("hello world from whatsapp");
+        msg5.setMessageType(MessageType.LOCALIZACAO);
         
         MessageTextHandler messageTextHandler = new MessageTextHandler();
         MessageMemeHandler messageMemeHandler = new MessageMemeHandler(messageTextHandler);
         MessageVideoHandler messageVideoHandler = new MessageVideoHandler(messageMemeHandler);
-        BroadcastMessage broadcastMessage = new BroadcastMessage(messageVideoHandler);
+        MessageLocalizacaoHandler messageLocalizacaoHandler = new MessageLocalizacaoHandler(messageVideoHandler);
+        BroadcastMessage broadcastMessage = new BroadcastMessage(messageLocalizacaoHandler);
 
         broadcastMessage.addMessage(msg1);
         broadcastMessage.addMessage(msg2);
         broadcastMessage.addMessage(msg3);
         broadcastMessage.addMessage(msg4);
+        broadcastMessage.addMessage(msg5);
 
         try {
             broadcastMessage.sendAllMessages();
