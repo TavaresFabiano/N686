@@ -14,10 +14,10 @@ public class Demo {
         msg2.setMessageType(MessageType.VIDEO);
 
         Message msg3 = new Message();
-        msg2.setOring("whatsapp");
-        msg2.setFrom("jhon.doe1");
-        msg2.setMsg("hello world from whatsapp");
-        msg2.setMessageType(MessageType.MEME);
+        msg3.setOring("whatsapp");
+        msg3.setFrom("jhon.doe1");
+        msg3.setMsg("hello world from whatsapp");
+        msg3.setMessageType(MessageType.MEME);
 
 		Message msg4 = new Message();
         msg4.setOring("whatsapp");
@@ -25,15 +25,23 @@ public class Demo {
         msg4.setMsg("hello world from whatsapp");
         msg4.setMessageType(MessageType.VIDEO);
         
+        Message msg5 = new Message();
+        msg5.setOring("whatsapp");
+        msg5.setFrom("jhon.doe1");
+        msg5.setMsg("hello world from whatsapp");
+        msg5.setMessageType(MessageType.GIF);
+        
         MessageTextHandler messageTextHandler = new MessageTextHandler();
         MessageMemeHandler messageMemeHandler = new MessageMemeHandler(messageTextHandler);
         MessageVideoHandler messageVideoHandler = new MessageVideoHandler(messageMemeHandler);
-        BroadcastMessage broadcastMessage = new BroadcastMessage(messageVideoHandler);
+        MessageGIFHandler messageGIFHandler = new MessageGIFHandler(messageVideoHandler);
+        BroadcastMessage broadcastMessage = new BroadcastMessage(messageGIFHandler);
 
         broadcastMessage.addMessage(msg1);
         broadcastMessage.addMessage(msg2);
         broadcastMessage.addMessage(msg3);
         broadcastMessage.addMessage(msg4);
+        broadcastMessage.addMessage(msg5);
 
         try {
             broadcastMessage.sendAllMessages();
