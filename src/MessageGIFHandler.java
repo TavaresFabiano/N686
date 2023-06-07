@@ -1,14 +1,14 @@
 import java.util.Objects;
 
-public class MessageLocalizacaoHandler extends MessageHandler{
-    public MessageLocalizacaoHandler () {
+public class MessageGIFHandler extends MessageHandler {
+	public MessageGIFHandler() {
         super();
     }
-    public MessageLocalizacaoHandler (MessageHandler nextMessage) {
+    public MessageGIFHandler(MessageHandler nextMessage) {
         super(nextMessage);
-    }
-
-    @Override
+	}
+    
+	@Override
 	String message(Message message) {
 		if (this.validateTypeMessage(message)) {
 			return this.sendMessage(message);
@@ -17,8 +17,7 @@ public class MessageLocalizacaoHandler extends MessageHandler{
 		return this.nextMessage.message(message);
 	}
 	@Override
-    MessageType getTypeMessage() {
-		return MessageType.LOCALIZACAO;
+	MessageType getTypeMessage() {
+		return MessageType.GIF;
 	}
-    
-} 
+}
